@@ -21,6 +21,43 @@
     
   </head>
   <body>
+      <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=578479549574243&autoLogAppEvents=1"></script>
+      <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{578479549574243}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{v5.0}'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk
+   
+   
+   ////////////////////
+   FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+</script>
+
+
+
   
   <div class="site-wrap">
     
@@ -139,6 +176,13 @@
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
+  <fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
+
+  
+  <!--<div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>-->
     
   </body>
 </html>
